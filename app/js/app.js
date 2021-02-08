@@ -2,6 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+	var objDiv = document.querySelector(".chat__message");
+	objDiv.scrollTop = objDiv.scrollHeight;
+
 	//----------------------SLIDER-hero----------------------
 		// var mySwiper = new Swiper('.hero__slider', {
 		// 	slidesPerView: 1,

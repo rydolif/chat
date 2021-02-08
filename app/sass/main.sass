@@ -42,9 +42,31 @@
 .section
 	background-color: $bg
 	min-height: 100vh
+	overflow: hidden
 
 
 .chat
+
+	button
+		background-color: transparent
+		border: 0
+
+		&:hover
+			svg, path
+				fill: $accent
+
+	svg, path
+		+transition
+
+	input
+		border: 2px solid #F4F2F3
+		width: 100%
+		border-radius: 15px
+		padding: 0 55px 0 15px
+
+		&:focus
+			border: 2px solid $gray
+
 	&__container
 		display: flex
 		justify-content: space-between
@@ -54,8 +76,11 @@
 		position: absolute
 		left: 0
 		top: 0
+		bottom: 0
+		width: 100vw
 		border-radius: 45px 0px 0px 45px
 		background-color: #fff
+		z-index: -1
 
 	&__nav
 		display: flex
@@ -65,11 +90,23 @@
 		width: 26%
 		min-height: 100vh
 
+		+r(992)
+			padding: 25px 0
+		
+		+r(576)
+			width: 100%
+			min-height: 100%
+			text-align: center
+
 	&__profile
 		display: flex
 		align-items: center
 		flex-wrap: wrap
 		margin-bottom: 25px
+
+		+r(576)
+			justify-content: center
+			margin-bottom: 15px
 
 		&_logo
 			display: flex
@@ -98,15 +135,25 @@
 			margin-bottom: 25px
 			font-size: 12px
 
+			+r(992)
+				margin-bottom: 10px
+
 		&_lang
 			display: flex
 			justify-content: space-between
+			align-items: center
 			flex-wrap: wrap
 			width: 100%
 			color: $gray
 
+			+r(576)
+				justify-content: center
+
 			div
 				display: flex
+
+				+r(992)
+					margin-top: 5px
 
 			a
 				display: flex
@@ -116,11 +163,8 @@
 				text-transform: uppercase
 				color: #fff
 				border-radius: 10px
-				margin-right: 10px
+				margin-left: 10px
 				padding: 2px 15px
-
-				&:last-child
-					margin-right: 0
 
 			.active
 				background-color: $accent
@@ -132,6 +176,9 @@
 			color: $gray
 			margin-bottom: 20px
 
+			+r(992)
+				margin-bottom: 10px
+
 		&_img
 			display: flex
 			justify-content: center
@@ -139,6 +186,11 @@
 			width: 200px
 			height: 200px
 			margin: 0 auto 25px
+
+			+r(992)
+				margin-bottom: 10px
+				width: 140px
+				height: 140px
 
 			img
 				max-width: 100%
@@ -149,10 +201,17 @@
 			margin-bottom: 18px
 			text-align: center
 
+			+r(992)
+				margin-bottom: 10px
+
 		&_desc
 			margin-bottom: 50px
 			font-size: 12px
 			text-indent: 10px
+
+			+r(992)
+				text-indent: 5px
+				margin-bottom: 20px
 
 		&_soc
 			display: flex
@@ -162,9 +221,15 @@
 			img
 				+transition
 
+				+r(992)
+					width: 34px
+					height: 34px
 
 			a
 				margin-right: 25px
+
+				+r(992)
+					margin-right: 10px
 
 				&:hover
 					img
@@ -177,12 +242,182 @@
 				&:last-child
 					margin-right: 0
 
-
-
 	&__wrap
 		position: relative
+		z-index: 1
+		width: 70%
+		padding: 55px 0 55px 45px
+
+		+r(992)
+			padding: 25px 0 25px 15px
+
+		+r(576)
+			width: 100%
+
+	&__form
+		display: flex
+		justify-content: space-between
+
+		&_line
+			position: relative
+			width: 93%
+
+		&_add
+			position: absolute
+			right: 15px
+			top: 50%
+			transform: translate(0, -50%)
+
+	&__message
+		overflow: auto
+		max-height: 80vh
+		padding-right: 15px
+		margin-bottom: 15px
+
+		+r(992)
+			max-height: 86vh
+
+		/* полоса прокрутки (скроллбар) */
+		&::-webkit-scrollbar
+			width: 4px
+			height: 8px
+			background-color: #fff
+
+		/* ползунок скроллбара */
+		&::-webkit-scrollbar-thumb
+			background-color: $gray
+			border-radius: 9em
+			box-shadow: inset 1px 1px 10px #f3faf7
+
+		&::-webkit-scrollbar-thumb:hover
+			background-color: #253861
+
+		/* Стрелки */
+		&::-webkit-scrollbar-button:vertical:start:decrement
+			background-color: #f6f8f4
+
+		&::-webkit-scrollbar-button:vertical:end:increment
+			background-color: #f6f8f4
+
+		&::-webkit-scrollbar-button:horizontal:start:decrement
+			background-color: #f6f8f4
+
+		&::-webkit-scrollbar-button:horizontal:end:increment
+			background-color: #f6f8f4
+
+		&_line
+			display: flex
+			margin-bottom: 8px
+
+			&:last-child
+				margin-right: 0
+
+			p
+				background: #F4F2F3
+				border-radius: 16px 16px 16px 0px
+				padding: 12px 16px
+				margin-bottom: 4px
+				// width: 100%
+
+				+r(480)
+					padding: 7px 10px
+
+			&--client
+				flex-direction: row-reverse
+
+				p
+					background-color: $accent
+					color: #fff
+					border-radius: 16px 16px 0px 16px
+
+				span
+					justify-content: flex-end
+				
+				.chat__message
+					&_img
+						background-color: $accent
+						margin-right: 0
+						margin-left: 10px
+					
+					&_block
+						justify-content: flex-end
 
 
+		&_block
+			display: flex
+			flex-wrap: wrap
+
+			span
+				display: flex
+				color: $gray
+				font-size: 9px
+				width: 100%
+
+		&_img
+			position: relative
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 45px
+			height: 45px
+			border-radius: 50%
+			margin-right: 10px
+			flex-shrink: 0
+			margin-bottom: 0
+
+			+r(992)
+				margin-left: 5px
+				width: 36px
+				height: 36px
+
+			img
+				max-width: 100%
+
+			span
+				position: absolute
+				top: 4px
+				right: 4px
+				display: block
+				width: 6px
+				height: 6px
+				border-radius: 50%
+				background-color: #59D92C
+
+		&_file
+			display: flex
+			justify-content: center
+			align-items: center
+			margin-right: 10px
+			width: 46px
+			height: 45px
+			background-color: #F4F2F3 !important
+			border-radius: 16px
+
+			+r(992)
+				width: 32px
+				height: 32px
+				border-radius: 8px
+
+		&_image-file
+			display: block
+			position: relative
+
+			img
+				width: 144px
+				height: auto
+				margin-bottom: 3px
+				border-radius: 16px
+
+				+r(992)
+					width: 100px
+					border-radius: 8px
+
+			.chat__message_file
+				position: absolute
+				top: 3px
+				right: 3px
+				margin-right: 0
+				background-color: rgba(#F4F2F3, .8) !important
 
 
 // -----MODAL-----
