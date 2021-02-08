@@ -1,13 +1,13 @@
 
 //----------------------fonts---------------------
-$fonts: 'Roboto', sans-serif
+$fonts: 'Inter', sans-serif
 //---------------------end-fonts---------------------
 
 //----------------------color---------------------
-$accent: #4cddee
-$text: #353535
-$dark: #1e53a6
-$title: #f43ddb
+$accent: #6C90FF
+$text: #383845
+$gray: #BBBCCB
+$bg: #F4F2F3
 
 //---------------------end-color---------------------
 
@@ -51,14 +51,17 @@ p
 	padding: 0
 
 a,
-button,
+button
+	+transition
+	color: $text
+
 	&:focus,
 	&:hover,
 		outline: none
 		text-decoration: none
-		transition: all .6s
 		border: none
 		outline: none
+		color: $accent
 
 
 input, textarea, select

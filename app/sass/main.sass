@@ -38,106 +38,151 @@
 		background: $accent
 		color: #fff
 
-// -----HAMBURGER-----
-.hamburger
-	position: relative
-	display: flex
-	padding: 0
-	border: none
-	background-color: transparent
-	transition: all .3s
-	width: 25px
-	height: 18px
-	margin-right: 15px
-	outline: none
-
-	&:hover
-		span
-			background-color: $accent
-
-			&::before,
-			&::after
-				background-color: $accent
-
-	&__item
-		position: absolute
-		left: 0
-		top: 50%
-		transform: translate(0, -50%)
-		width: 12px
-		height: 2px
-		background-color: $text
-		border-radius: 4px
-		+transition
-		bottom: 0
-
-		&::before,
-		&::after
-			content: ''
-			display: block
-			position: absolute
-			left: 0
-			background-color: $text
-			height: 2px
-			+transition
-
-		&::before
-			top: 7px
-			width: 18px
-
-		&::after
-			top: -7px
-			width: 25px
-
-	&--active
-		z-index: 100
-
-		&:hover
-			span
-				background-color: transparent
-
-				&::before,
-				&::after
-					background-color: $accent
-
-		.hamburger__item
-			background-color: transparent
-
-			&::before
-				top: 0
-				width: 25px
-				transform: rotate(45deg)
-
-			&::after
-				top: 0
-				width: 25px
-				transform: rotate(-45deg)
-
-
-.header
-	position: fixed
-	top: 0
-	right: 0
-	left: 0
-
-	&__container
-		+between
-
-	&__logo
-		width: 100px
-
-		img
-			width: 100%
-			height: auto
-
 
 .section
-	padding: 40px 0
+	background-color: $bg
+	min-height: 100vh
 
 
-.footer
+.chat
 	&__container
-		+between
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+	&__bg
+		position: absolute
+		left: 0
+		top: 0
+		border-radius: 45px 0px 0px 45px
+		background-color: #fff
+
+	&__nav
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		padding: 50px 0
+		width: 26%
+		min-height: 100vh
+
+	&__profile
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+		margin-bottom: 25px
+
+		&_logo
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 56px
+			height: 56px
+			border-radius: 50%
+			overflow: hidden
+			margin-right: 25px
+
+			img
+				max-width: 100%
+
+		&_name
+			font-size: 16px
+			font-weight: 700
+			margin-bottom: 2px
+
+		&_text
+			font-size: 12px
+
+		&_info
+			width: 100%
+			margin-top: 17px
+			margin-bottom: 25px
+			font-size: 12px
+
+		&_lang
+			display: flex
+			justify-content: space-between
+			flex-wrap: wrap
+			width: 100%
+			color: $gray
+
+			div
+				display: flex
+
+			a
+				display: flex
+				align-items: center
+				justify-content: center
+				background-color: $gray
+				text-transform: uppercase
+				color: #fff
+				border-radius: 10px
+				margin-right: 10px
+				padding: 2px 15px
+
+				&:last-child
+					margin-right: 0
+
+			.active
+				background-color: $accent
+
+	&__сonsultant
+
+		&_title
+			text-align: center
+			color: $gray
+			margin-bottom: 20px
+
+		&_img
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 200px
+			height: 200px
+			margin: 0 auto 25px
+
+			img
+				max-width: 100%
+
+		&_name
+			font-size: 16px
+			font-weight: 700
+			margin-bottom: 18px
+			text-align: center
+
+		&_desc
+			margin-bottom: 50px
+			font-size: 12px
+			text-indent: 10px
+
+		&_soc
+			display: flex
+			justify-content: center
+			align-items: center
+
+			img
+				+transition
+
+
+			a
+				margin-right: 25px
+
+				&:hover
+					img
+						transform: scale(.94)
+
+				&:active
+					img
+						transform: scale(1.08)
+
+				&:last-child
+					margin-right: 0
+
+
+
+	&__wrap
+		position: relative
+
+
 
 
 // -----MODAL-----
@@ -313,7 +358,7 @@
 				align-self: start
 				flex: 0 0 24px
 				height: 24px
-				background-color: $dark
+				background-color: #000
 				border-radius: 50%
 				margin-right: 10px
 
@@ -363,7 +408,7 @@
 			border-radius: 30px
 			justify-content: center
 			align-items: center
-			background-color: $dark
+			background-color: #000
 			color: #fff
 			padding: 0 15px
 			cursor: pointer
@@ -394,7 +439,7 @@
 				align-self: flex-start
 				flex: 0 0 24px
 				height: 24px
-				background-color: $dark
+				background-color: #000
 				border-radius: 4px
 				margin-right: 10px
 				+transition
@@ -428,14 +473,14 @@
 			justify-content: center
 			align-items: center
 			min-height: 60px
-			background-color: $dark
+			background-color: #000
 			color: #ffffff
 			font-size: 16px
 			font-weight: 700
 			cursor: pointer
 			border-radius: 20px
 			display: block
-			box-shadow: 0 0 5px 0 rgba($dark, .3)
+			box-shadow: 0 0 5px 0 rgba(#000, .3)
 			border: 0
 			position: relative
 			top: 0
@@ -447,7 +492,7 @@
 			&:active
 				background-color: $accent
 				top: 3px
-				box-shadow: 0 0 5px 0 rgba($dark, .2)
+				box-shadow: 0 0 5px 0 rgba(#000, .2)
 
 	&__error
 		position: absolute
