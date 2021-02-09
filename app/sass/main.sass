@@ -39,6 +39,7 @@
 	&:focus
 		background: $accent
 		color: #fff
+		box-shadow: 0 0 15px 0 rgba($accent, .5)
 
 
 .section
@@ -468,27 +469,54 @@
 
 .active
 
+	button
+
+		&:hover
+			svg, path
+				fill: #fff
+				stroke: $accent
+
 	h2
 		font-size: 20px
-		margin-bottom: 45px
 		text-transform: uppercase
+
+	&__header
+		display: flex
+		justify-content: space-between
+		align-items: center
+		flex-wrap: wrap
+		padding-left: 20px
+		margin-bottom: 45px
 
 		+r(992)
 			margin-bottom: 20px
 
+		+r(480)
+			display: flex
+			justify-content: center
+			padding-left: 0
+
+			.btn
+				margin-top: 10px
+
+			h2
+				width: 100%
+				text-align: center
+
 	&__wrap
 		position: relative
 		width: 49%
-		padding: 60px 20px
+		padding: 60px 0
 		z-index: 1
 
 		+r(992)
-			padding: 25px 10px
+			padding: 25px 0
 
 		+r(576)
 			width: 100%
 
 	&__line
+		position: relative
 		display: flex
 		flex-wrap: wrap
 		justify-content: space-between
@@ -498,9 +526,26 @@
 		+r(992)
 			padding: 5px 10px
 
+		&::before
+			content: ''
+			display: block
+			background-color: $accent
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			border-radius: 2px
+			width: 4px
+			height: 100%
+			opacity: 0
+			+transition
+
 		&:hover
 			box-shadow: 0px 0px 5px 2px rgba(191, 190, 206, 0.28)
 			color: $text
+
+			&::before
+				opacity: 1
 
 		&_wrap
 			display: flex
@@ -536,6 +581,9 @@
 			display: inline-block
 			position: relative
 
+			&:last-child
+				margin-right: 10px
+
 			span
 				position: absolute
 				right: -6px
@@ -553,6 +601,18 @@
 				background-color: $accent
 				padding: 2px
 
+		&_meneger
+			font-size: 12px
+			margin-right: 50px
+
+			+r(1200)
+				margin-right: 40px
+
+			+r(992)
+				margin-right: 30px
+			
+			+r(576)
+				margin-right: 15px
 
 
 
@@ -586,8 +646,8 @@
 
 	&__close
 		position: absolute
-		right: 0
-		top: -40px
+		right: 15px
+		top: 15px
 		display: block
 		width: 30px
 		height: 30px
@@ -596,6 +656,7 @@
 		cursor: pointer
 		transition: all .6s
 		background-color: transparent
+		border: 1px solid $gray
 
 		+r(576)
 			width: 30px
@@ -604,20 +665,21 @@
 		&:hover
 			outline: none
 			transform: rotate(90deg)
+			border: 1px solid red
 
 			span
-				background: $accent
+				background: red
 
 		span
 			display: block
 			position: absolute
 			left: 50%
 			top: 50%
-			background: #fff
+			background: $gray
 			transition: all .6s
 			border-radius: 4px
-			height: 22px
-			width: 3px
+			height: 15px
+			width: 2px
 
 			&:first-child
 				transform: translate(-50%, -50%) rotate(45deg)
@@ -630,12 +692,13 @@
 		background-color: #fff
 		box-shadow: 0 0 16px rgba(0, 0, 0, 0.29)
 		width: 100%
-		max-width: 500px
+		max-width: 575px
 		height: auto
-		padding: 50px
+		padding: 30px 40px
 		border: 1px solid #8d8d8e
 		margin: auto
 		transform: translate(0, -150px)
+		border-radius: 25px
 		+transition
 
 		&::after
@@ -697,10 +760,6 @@
 
 		&::placeholder
 			line-height: 40px
-			font-size: 16px
-
-		&:focus
-			box-shadow: 0 0 4px 0 rgba($text, 1)
 
 		&._error
 			box-shadow: 0 0 4px 0 rgba(red, 1)
@@ -710,7 +769,7 @@
 		width: 100%
 		resize: none
 		min-height: 120px
-		padding: 15px
+		padding: 5px 10px
 
 		&._error
 			box-shadow: 0 0 4px 0 rgba(red, 1)
@@ -721,26 +780,27 @@
 		&_label
 			position: relative
 			display: inline-flex
-			font-size: 16px
 			line-height: 140%
 			align-items: center
+			cursor: pointer
 
 			&::before
 				content: ''
 				align-self: start
-				flex: 0 0 24px
-				height: 24px
-				background-color: #000
+				flex: 0 0 16px
+				height: 16px
 				border-radius: 50%
 				margin-right: 10px
+				border: 3px solid $gray
+				+transition
 
 			&::after
 				content: ''
 				position: absolute
 				top: 4px
 				left: 4px
-				width: 16px
-				height: 16px
+				width: 9px
+				height: 9px
 				border-radius: 50%
 				background-color: #fff
 				transform: scale(0)
@@ -749,14 +809,14 @@
 		&_input
 			display: none
 
-			&:checked + .form__options_label::after
+			&:checked + .form__options_label::before
 				transform: scale(1)
+				border-color: $accent
 
 	&__select
 		height: 50px
 		width: 100%
-		border-radius: 5px
-		font-size: 16px
+		border-radius: 5p
 		padding: 0 15px
 
 	&__file
@@ -786,8 +846,14 @@
 			cursor: pointer
 
 		&_preview
-			display: inline-block
-			max-width: 100px
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 160px
+			height: 160px
+			border-radius: 50%
+			overflow: hidden
+			background-color: $gray
 
 			img
 				max-width: 100%
@@ -800,7 +866,6 @@
 		&_label
 			position: relative
 			width: 100%
-			font-size: 16px
 			line-height: 140%
 			display: inline-flex
 			align-items: center
@@ -838,33 +903,8 @@
 
 	&__btn
 		order: 1
-
-		&_button
-			width: 100%
-			display: flex
-			justify-content: center
-			align-items: center
-			min-height: 60px
-			background-color: #000
-			color: #ffffff
-			font-size: 16px
-			font-weight: 700
-			cursor: pointer
-			border-radius: 20px
-			display: block
-			box-shadow: 0 0 5px 0 rgba(#000, .3)
-			border: 0
-			position: relative
-			top: 0
-			+transition
-
-			&:hover
-				background-color: $accent
-
-			&:active
-				background-color: $accent
-				top: 3px
-				box-shadow: 0 0 5px 0 rgba(#000, .2)
+		display: flex
+		justify-content: center
 
 	&__error
 		position: absolute
@@ -920,4 +960,62 @@
 			img
 				max-width: 50%
 
+	&__line
+		.form__options
+			display: flex
+			justify-content: space-between
 
+			&_item
+				width: 50%
+
+
+.formLebel
+	position: relative
+	padding: 0
+	+transition
+
+	&::before,
+	&::after
+		content: ''
+		background-color: #fff
+		display: block
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+	&::before
+		width: 14px
+		height: 2px
+	
+	&::after
+		height: 14px
+		width: 2px
+
+	&:hover
+		box-shadow: 0 0 15px 0 rgba($accent, .5)
+
+
+.formImgFile
+	position: relative
+	width: 160px
+	height: 160px
+	margin: 0 auto 35px
+
+	.form__file_item
+		position: absolute
+		bottom: 0
+		right: 0
+		margin-bottom: 0
+
+		input
+			padding: 0
+			line-height: 0
+			height: 0
+
+		label
+			width: 40px
+			height: 40px
+			border-radius: 50%
+			background-color: $accent
+			margin-bottom: 0
