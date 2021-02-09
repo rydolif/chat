@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
 				formImage.id = (formImageNumber);
 				formLebel.htmlFor = ('formImage--' + lebel++);
 				formPreview.id = (formPreviewNumber);
-				console.log(formPreview);
 				const formImageAdd = document.querySelector('#' + formImageNumber);
 
 				// изменения в инпуте файл
