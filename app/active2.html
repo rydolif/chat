@@ -193,7 +193,7 @@
 				<div class="chat__bg"></div>
 				<div class="active__header">
 					<h2>клиенты</h2>
-					<a href="#" class="btn modal__add">Добавить</a>
+					<a href="#" class="btn modal__client">Добавить</a>
 				</div>
 				<a href="#" class="active__line">
 					<div class="active__line_wrap">
@@ -457,11 +457,77 @@
 				</div>
 
 				<div class="form__item">
-					<input type="text" name="name" placeholder="Фамилия" class="form__input _req">
+					<input type="text" name="name" placeholder="Телеграм" class="form__input _req">
 				</div>
 
 				<div class="form__item">
-					<textarea name="message" id="formMessage" class="form__textarea" placeholder="Информация"></textarea>
+					<input type="text" name="name" placeholder="3 соц. сеть" class="form__input _req">
+				</div>
+
+				<div class="form__item">
+					<input type="text" name="name" placeholder="ВатСапп" class="form__input _req">
+				</div>
+
+				<div class="form__item">
+					<textarea name="message" class="form__textarea" placeholder="Информация"></textarea>
+				</div>
+
+				<div class="form__btn">
+					<button type="submit" class="btn" name="submit">Сохранить</button>
+				</div>
+	
+		</form>
+	</div>
+
+	<div class="modal" id="modal__client">
+		<form action="#" class="modal__form form" method="POST">
+	
+			<button class="close modal__close" type="button">
+				<span></span>
+				<span></span>
+			</button>
+
+				<input type="hidden" name="subject" value="Добавить елемент в слайдер">
+
+				<div class="form__item">
+					<div class="form__file formImgFile">
+						<div class="form__file_item">
+							<input accept=".jpg, .png, .gif, .ico" type="file" name="image" class="formImage form__file_input">
+							<label class="formLebel form__file_button"></label>
+						</div>
+						<div id="formPreview" class="formPreview form__file_preview">
+							<img src="img/Vector.png" alt="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form__item">
+					<input type="text" name="name" placeholder="Название" class="form__input _req">
+				</div>
+
+				<div class="form__item">
+					<textarea name="message" class="form__textarea" placeholder="Описание"></textarea>
+				</div>
+
+				<div class="form__item">
+					<input type="tel" name="phone" placeholder="Телефон" class="form__input _req">
+				</div>
+
+				<div class="form__item">
+					<input type="mail" name="name" placeholder="Почта" class="form__input _req">
+				</div>
+
+				<div class="form__item form__line">
+					<div class="form__options">
+						<div class="form__options_item">
+							<input id="formFace1" type="radio" value="raight" name="hand" class="form__options_input" checked>
+							<label for="formFace1" class="form__options_label"><span>Юр. лицо</span></label>
+						</div>
+						<div class="form__options_item">
+							<input id="formFace2" type="radio" value="left" name="hand" class="form__options_input">
+							<label for="formFace2" class="form__options_label"><span>Физ. лицо</span></label>
+						</div>
+					</div>
 				</div>
 
 				<div class="form__btn">
