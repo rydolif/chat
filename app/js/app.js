@@ -171,35 +171,35 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			})
 
-			function formAddError(input) {
-				let div = document.createElement('div');
-				div.classList.add("form__error");
-				div.innerHTML = "Введите данные в поле";
+			// function formAddError(input) {
+			// 	let div = document.createElement('div');
+			// 	div.classList.add("form__error");
+			// 	div.innerHTML = "Введите данные в поле";
 
-				input.parentElement.append(div);
-				input.parentElement.classList.add('_error');
-				input.classList.add('_error');
-			}
+			// 	input.parentElement.append(div);
+			// 	input.parentElement.classList.add('_error');
+			// 	input.classList.add('_error');
+			// }
 
-			function formAddErrorEmail(input) {
-				let div = document.createElement('div');
-				div.classList.add("form__error");
-				div.innerHTML = "Введите свою почту";
+			// function formAddErrorEmail(input) {
+			// 	let div = document.createElement('div');
+			// 	div.classList.add("form__error");
+			// 	div.innerHTML = "Введите свою почту";
 
-				input.parentElement.append(div);
-				input.parentElement.classList.add('_error');
-				input.classList.add('_error');
-			}
+			// 	input.parentElement.append(div);
+			// 	input.parentElement.classList.add('_error');
+			// 	input.classList.add('_error');
+			// }
 
-			function formAddErrorCheck(input) {
-				let div = document.createElement('div');
-				div.classList.add("form__error");
-				div.innerHTML = "Согласие на обработку персональных данных";
+			// function formAddErrorCheck(input) {
+			// 	let div = document.createElement('div');
+			// 	div.classList.add("form__error");
+			// 	div.innerHTML = "Согласие на обработку персональных данных";
 
-				input.parentElement.append(div);
-				input.parentElement.classList.add('_error');
-				input.classList.add('_error');
-			}
+			// 	input.parentElement.append(div);
+			// 	input.parentElement.classList.add('_error');
+			// 	input.classList.add('_error');
+			// }
 		
 			function emailTest(input) {
 				return !/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/. test(input.value);
