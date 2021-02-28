@@ -104,13 +104,42 @@ input
 
 textarea
 	border-color: #F4F2F3
-	border-radius: 15px
 
 	&:focus
 		border-color: $accent
 
 	&::placeholder
 		color: $gray
+
+	/* полоса прокрутки (скроллбар) */
+	&::-webkit-scrollbar
+		width: 4px
+		height: 8px
+		background-color: #fff
+
+	/* ползунок скроллбара */
+	&::-webkit-scrollbar-thumb
+		background-color: $gray
+		border-radius: 9em
+		box-shadow: inset 1px 1px 10px #f3faf7
+
+	&::-webkit-scrollbar-thumb:hover
+		background-color: #253861
+		cursor: pointer
+
+	/* Стрелки */
+	&::-webkit-scrollbar-button:vertical:start:decrement
+		background-color: #f6f8f4
+
+	&::-webkit-scrollbar-button:vertical:end:increment
+		background-color: #f6f8f4
+
+	&::-webkit-scrollbar-button:horizontal:start:decrement
+		background-color: #f6f8f4
+
+	&::-webkit-scrollbar-button:horizontal:end:increment
+		background-color: #f6f8f4
+
 
 label.error
 	position: absolute

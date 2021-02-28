@@ -276,7 +276,8 @@
 
 	&__form
 		display: flex
-		justify-content: space-between
+		justify-content: space-betweena
+		align-items: flex-end
 
 		&_line
 			position: relative
@@ -285,8 +286,30 @@
 		&_add
 			position: absolute
 			right: 15px
-			top: 50%
-			transform: translate(0, -50%)
+			bottom: 15px
+
+		&_file
+			padding-bottom: 15px
+			padding-right: 15px
+		
+		&_textarea
+			border: 1px solid #F4F2F3
+			border-radius: 15px
+			padding: 15px
+
+			textarea
+				padding: 0
+				border: 0
+				max-height: 100px
+				height: 20px
+				resize: none
+				height: 20px
+				max-height: 120px
+				line-height: 20px
+				width: 100%
+				margin-bottom: 0
+				transition: height .3s
+
 
 	&__message
 		position: static
@@ -297,7 +320,6 @@
 
 		+r(992)
 			max-height: calc(100vh - 165px)
-
 
 		/* полоса прокрутки (скроллбар) */
 		&::-webkit-scrollbar
@@ -363,7 +385,6 @@
 					
 					&_block
 						justify-content: flex-end
-
 
 		&_block
 			display: flex
